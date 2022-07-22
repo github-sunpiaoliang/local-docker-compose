@@ -9,4 +9,4 @@
    - [x] xxl-job
    
 待处理：
-   - [] redis 
+   - [ ] redis 
