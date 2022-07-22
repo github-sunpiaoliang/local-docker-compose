@@ -20,12 +20,11 @@ services:
       #映射mysql的数据目录到宿主机，保存数据
       - "/Users/sunpeng/docker/volumes/mysql/data:/var/lib/mysql"
       #根据宿主机下的配置文件创建容器
-#      - "/Users/sunpeng/docker/volumes/mysql/config/my.cnf:/etc/mysql/my.cnf"
       - "/Users/sunpeng/docker/init/mysql:/docker-entrypoint-initdb.d"
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     networks:
-      - mysql
+      - custom
 
 networks:
-  mysql:
+  custom:
     external: true
