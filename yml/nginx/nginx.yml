@@ -1,0 +1,23 @@
+version: "3"
+services:
+  nginx:
+    hostname: nginx
+    container_name: nginx
+    image: nginx:${NGINX_VERSION}
+    privileged: true
+    volumes:
+      - "/Users/sunpeng/docker/volumes/nginx/logs:/var/log/nginx/."
+      - "/Users/sunpeng/docker/volumes/nginx/html:/usr/share/nginx/html/."
+      - "/Users/sunpeng/docker/volumes/nginx/conf:/etc/nginx/."
+    ports:
+      - "80:80"
+      - "443:443"
+    env_file:
+      - "/Users/sunpeng/docker/env/nginx/nginx.env"
+    restart: always
+    networks:
+      - custom
+
+networks:
+  custom:
+    external: true

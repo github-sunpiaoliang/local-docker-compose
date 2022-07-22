@@ -6,6 +6,7 @@
    - [x] mysql
    - [x] mongodb
    - [x] nacos
+   - [x] nginx
    - [x] xxl-job
    
 待处理：
