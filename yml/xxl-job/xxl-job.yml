@@ -8,9 +8,9 @@ services:
     ports:
       - 18080:8080
     volumes:
-      - "/Users/sunpeng/docker/volumes/xxl-job/logs:/data/applogs"
+      - ${CURRENT_PATH}/volumes/xxl-job/logs:/data/applogs
     env_file:
-      - "/Users/sunpeng/docker/env/xxl-job/xxl-job.env"
+      - ${CURRENT_PATH}/env/xxl-job/xxl-job.env
     networks:
       - custom
 
