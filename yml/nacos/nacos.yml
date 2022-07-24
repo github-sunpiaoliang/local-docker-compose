@@ -5,14 +5,14 @@ services:
     container_name: nacos
     image: nacos/nacos-server:${NACOS_VERSION}
     volumes:
-      - /Users/sunpeng/docker/volumes/nacos/logs:/home/nacos/logs
-      - /Users/sunpeng/docker/volumes/nacos/init.d/custom.properties:/home/nacos/init.d/custom.properties
+      - ${CURRENT_PATH}/volumes/nacos/logs:/home/nacos/logs
+      - ${CURRENT_PATH}/volumes/nacos/init.d/custom.properties:/home/nacos/init.d/custom.properties
     ports:
       - "8848:8848"
       - "9848:9848"
       - "9555:9555"
     env_file:
-      - "/Users/sunpeng/docker/env/nacos/nacos.env"
+      - ${CURRENT_PATH}/env/nacos/nacos.env
     restart: always
     networks:
       - custom

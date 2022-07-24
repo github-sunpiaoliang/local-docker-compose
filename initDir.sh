@@ -1,6 +1,6 @@
 #! /bin/bash
 if [ $# -lt 1 ]; then 
-    echo 没有命令行参数
+    echo "没有命令行参数"
     exit 0
 fi
 
@@ -19,6 +19,8 @@ fi
 cd $DIR_PATH
 chmod u+x $FILE_PATH
 source $FILE_PATH
+
+sed -i '' "s#\${CURRENT_PATH}#$CURRENT_DIR#g"  $CURRENT_DIR/yml/$1/.env
 
 
 

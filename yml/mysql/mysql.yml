@@ -10,7 +10,7 @@ services:
     ports:
       - "3306:3306"
     env_file:
-      - "/Users/sunpeng/docker/env/mysql/mysql.env"
+      - ${CURRENT_PATH}/env/mysql/mysql.env
     command:
       --wait_timeout=31536000
       --interactive_timeout=31536000
@@ -18,9 +18,9 @@ services:
       --default-authentication-plugin=mysql_native_password
     volumes:
       #映射mysql的数据目录到宿主机，保存数据
-      - "/Users/sunpeng/docker/volumes/mysql/data:/var/lib/mysql"
+      - ${CURRENT_PATH}/volumes/mysql/data:/var/lib/mysql
       #根据宿主机下的配置文件创建容器
-      - "/Users/sunpeng/docker/init/mysql:/docker-entrypoint-initdb.d"
+      - ${CURRENT_PATH}/init/mysql:/docker-entrypoint-initdb.d
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     networks:
       - custom
