@@ -3,7 +3,7 @@ services:
   nacos:
     hostname: nacos
     container_name: nacos
-    image: nacos/nacos-server:${NACOS_VERSION}
+    image: ${IMAGE}:${NACOS_VERSION}
     volumes:
       - ${CURRENT_PATH}/volumes/nacos/logs:/home/nacos/logs
       - ${CURRENT_PATH}/volumes/nacos/init.d/custom.properties:/home/nacos/init.d/custom.properties

@@ -3,7 +3,7 @@ services:
   redis:
     hostname: redis
     container_name: redis
-    image: redis:${REDIS_VERSION}
+    image: ${IMAGE}:${REDIS_VERSION}
     volumes:
       - ${CURRENT_PATH}/volumes/redis/data:/data
       - ${CURRENT_PATH}/volumes/redis/logs:/logs

@@ -3,7 +3,7 @@ services:
   nginx:
     hostname: nginx
     container_name: nginx
-    image: nginx:${NGINX_VERSION}
+    image: ${IMAGE}:${NGINX_VERSION}
     privileged: true
     volumes:
       - ${CURRENT_PATH}/volumes/nginx/logs:/var/log/nginx/.

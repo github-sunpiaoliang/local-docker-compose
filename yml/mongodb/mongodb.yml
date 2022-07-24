@@ -3,7 +3,7 @@ services:
   mongodb:
     hostname: mongodb
     container_name: mongodb
-    image: mongo:${MONGODB_VERSION}
+    image: ${IMAGE}:${MONGODB_VERSION}
     volumes:
       - ${CURRENT_PATH}/volumes/mongodb/data:/data/db
       - ${CURRENT_PATH}/init/mongodb:/docker-entrypoint-initdb.d

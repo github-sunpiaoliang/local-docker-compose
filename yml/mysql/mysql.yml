@@ -1,7 +1,7 @@
 version: '3'
 services:
   mysql:
-    image: mysql:${MYSQL_VERSION}
+    image: ${IMAGE}:${MYSQL_VERSION}
     container_name: mysql-5.7
     #使用该参数，container内的root拥有真正的root权限，否则，container内的root只是外部的一个普通用户权限
     #设置为true，不然数据卷可能挂载不了，启动不起
