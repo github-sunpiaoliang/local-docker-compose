@@ -9,3 +9,4 @@
    - [x] nginx
    - [x] xxl-job
    - [x] redis 
+   - [x] showdoc 
