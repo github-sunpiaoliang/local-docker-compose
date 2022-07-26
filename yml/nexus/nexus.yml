@@ -8,10 +8,9 @@ services:
     volumes:
       - ${CURRENT_PATH}/volumes/nexus/data:/var/nexus-data
     ports:
-      - "18081:18081"
+      - "18081:8081"
     env_file:
       - ${CURRENT_PATH}/env/nexus/nexus.env
-    restart: always
     networks:
       - custom
 
