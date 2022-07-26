@@ -10,3 +10,5 @@
    - [x] xxl-job
    - [x] redis 
    - [x] showdoc 
+   - [x] jenkins 
+   - [x] nexus 
