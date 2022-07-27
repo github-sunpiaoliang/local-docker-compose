@@ -13,7 +13,7 @@ services:
 
   rocketmq-broker:
     image: ${IMAGE}:${ROCKETMQ_VERSION}
-    container_name: rocketmq-namesrv
+    container_name: rocketmq-broker
     ports:
       - 10909:10909
       - 10911:10911
