@@ -13,7 +13,8 @@ services:
     env_file:
       - ${CURRENT_PATH}/env/showdoc/showdoc.env
     restart: always
-
+    #主要为了解决目录被清空的问题
+    command: /bin/bash -c "if [ ! -f "/var/www/html/web/index.html" ]; then cp -fr /showdoc_data/html/ /var/www/ ;fi  && /start.sh "
     networks:
       - custom
 
