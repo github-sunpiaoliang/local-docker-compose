@@ -1,0 +1,25 @@
+version: '3.6'
+services:
+  gitlab:
+    image: ${IMAGE}:${GITLAB_VERSION}
+    container_name: gitlab
+    restart: always
+    hostname: gitlab
+    ports:
+      - 8980:80
+      - 8943:443
+      - 8922:22
+    volumes:
+      - ${CURRENT_PATH}/volumes/gitlab/config:/etc/gitlab
+      - ${CURRENT_PATH}/volumes/gitlab/logs:/var/log/gitlab
+      - ${CURRENT_PATH}/volumes/gitlab/data:/var/opt/gitlab
+    shm_size: '256m'
+    env_file:
+      - ${CURRENT_PATH}/env/gitlab/gitlab.env
+    networks:
+      - custom
+
+networks:
+  custom:
+    external: true
+
