@@ -21,8 +21,21 @@ services:
     volumes:
       - ${CURRENT_PATH}/volumes/rocketmq/broker/logs:/home/rocketmq/logs
       - ${CURRENT_PATH}/volumes/rocketmq/broker/store:/home/rocketmq/store
-      #- ${CURRENT_PATH}/volumes/rocketmq/broker/conf/broker.conf:/home/rocketmq/rocketmq-4.5.0/conf/broker.conf
-    command: sh mqbroker -n rocketmq-namesrv:9876 -c ../conf/broker.conf
+    command: ./mqbroker -n rocketmq-namesrv:9876
+    depends_on:
+      - rocketmq-namesrv
+    networks:
+      - custom
+
+  rocketmq-console-ng:
+    image: ${CONSOLE_IMAGE}:${CONSOLE_VERSION}
+    container_name: rocketmq-console-ng
+    ports:
+      - 10100:8080
+    volumes:
+      - ${CURRENT_PATH}/volumes/rocketmq/console-ng/temp:/tmp
+    env_file:
+      - ${CURRENT_PATH}/env/rocketmq/console.env
     depends_on:
       - rocketmq-namesrv
     networks:
