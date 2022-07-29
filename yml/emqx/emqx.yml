@@ -3,6 +3,7 @@ services:
   emqx:
     image: ${IMAGE}:${EMQX_VERSION}
     container_name: emqx
+    privileged: true
     restart: always
     ports:
       - "1883:1883"
@@ -11,9 +12,8 @@ services:
     env_file:
       - ${CURRENT_PATH}/env/emqx/emqx.env
     volumes:
-      - ${CURRENT_PATH}/volumes/emqx/data:/opt/emqx/data
-      - ${CURRENT_PATH}/volumes/emqx/etc:/opt/emqx/etc
-      - ${CURRENT_PATH}/volumes/emqx/logs:/opt/emqx/log
+      - ${CURRENT_PATH}/volumes/emqx/data:/opt/emqx/data/.
+      - ${CURRENT_PATH}/volumes/emqx/logs:/opt/emqx/log/.
     networks:
       - custom
 
