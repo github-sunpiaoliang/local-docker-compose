@@ -6,9 +6,9 @@ services:
     privileged: true
     restart: always
     ports:
-      - "1883:1883"
-      - "18083:18083"
-      - "4369:4369"
+      - 1883:1883
+      - 18083:18083
+      - 4369:4369
     env_file:
       - ${CURRENT_PATH}/env/emqx/emqx.env
     volumes:
