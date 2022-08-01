@@ -1,6 +1,6 @@
 #! /bin/bash
 
-mkdir -p data etc logs
+mkdir -p data logs
 
 
 
