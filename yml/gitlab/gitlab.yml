@@ -6,9 +6,9 @@ services:
     restart: always
     hostname: gitlab
     ports:
-      - 8980:80
-      - 8943:443
-      - 8922:22
+      - "8980:80"
+      - "8943:443"
+      - "8922:22"
     volumes:
       - ${CURRENT_PATH}/volumes/gitlab/config:/etc/gitlab
       - ${CURRENT_PATH}/volumes/gitlab/logs:/var/log/gitlab

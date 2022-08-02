@@ -9,12 +9,12 @@ services:
     volumes:
       - ${CURRENT_PATH}/volumes/jenkins/jenkins_home:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/local/Cellar/maven/3.8.6:/var/mvn
     ports:
       - "18888:8080"
       - "15000:5000"
     env_file:
       - ${CURRENT_PATH}/env/jenkins/jenkins.env
-    restart: always
 
     networks:
       - custom
