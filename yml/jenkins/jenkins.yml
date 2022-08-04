@@ -15,7 +15,6 @@ services:
       - "15000:5000"
     env_file:
       - ${CURRENT_PATH}/env/jenkins/jenkins.env
-    restart: always
 
     networks:
       - custom
