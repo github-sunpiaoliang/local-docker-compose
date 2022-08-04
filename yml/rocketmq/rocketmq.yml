@@ -21,7 +21,8 @@ services:
     volumes:
       - ${CURRENT_PATH}/volumes/rocketmq/broker/logs:/home/rocketmq/logs
       - ${CURRENT_PATH}/volumes/rocketmq/broker/store:/home/rocketmq/store
-    command: ./mqbroker -n rocketmq-namesrv:9876
+      - ${CURRENT_PATH}/volumes/rocketmq/conf/broker.conf:/home/rocketmq/broker.conf
+    command: ./mqbroker -n rocketmq-namesrv:9876 -c /home/rocketmq/broker.conf
     depends_on:
       - rocketmq-namesrv
     networks:
