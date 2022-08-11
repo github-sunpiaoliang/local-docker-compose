@@ -1,5 +1,5 @@
 #! /bin/bash
 
-mkdir logs data
+mkdir data
 
 
