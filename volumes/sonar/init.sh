@@ -1,5 +1,5 @@
 #! /bin/bash
 
-mkdir logs data logs extensions
+mkdir data logs extensions
 
 

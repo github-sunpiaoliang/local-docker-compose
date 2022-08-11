@@ -1,0 +1,15 @@
+version: '3'
+services:
+  postgresql:
+    image: ${IMAGE}:${POSTGRESQL_VERSION}
+    hostname: postgresql
+    container_name: postgresql
+    ports:
+      - 5432:5432
+    env_file:
+      - ${CURRENT_PATH}/env/postgresql/postgresql.env
+    networks:
+      - custom
+networks:
+  custom:
+    external: true
