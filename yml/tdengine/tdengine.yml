@@ -1,6 +1,6 @@
 version: '3'
 services:
-  mysql:
+  tdengine:
     image: ${IMAGE}:${TDENGINE_VERSION}
     # hostname: tdengine-server
     container_name: tdengine

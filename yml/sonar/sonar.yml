@@ -1,0 +1,21 @@
+version: '3'
+services:
+  sonar:
+    image: ${IMAGE}:${TDENGINE_VERSION}
+    hostname: sonar
+    container_name: sonar
+    privileged: true
+    ports:
+      - 9000:9000
+    env_file:
+      - ${CURRENT_PATH}/env/sonar/sonar.env
+    volumes:
+      - ${CURRENT_PATH}/volumes/sonar/data:/opt/sonarqube/data
+      - ${CURRENT_PATH}/volumes/sonar/logs:/opt/sonarqube/logs
+      - ${CURRENT_PATH}/volumes/sonar/extensions:/opt/sonarqube/extensions
+    networks:
+      - custom
+
+networks:
+  custom:
+    external: true
