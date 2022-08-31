@@ -7,6 +7,8 @@ services:
       - 9876:9876
     volumes:
       - ${CURRENT_PATH}/volumes/rocketmq/namesrv/logs:/home/rocketmq/logs
+    env_file:
+      - ${CURRENT_PATH}/env/rocketmq/namesrv.env
     command: sh mqnamesrv
     networks:
       - custom
@@ -22,6 +24,8 @@ services:
       - ${CURRENT_PATH}/volumes/rocketmq/broker/logs:/home/rocketmq/logs
       - ${CURRENT_PATH}/volumes/rocketmq/broker/store:/home/rocketmq/store
       - ${CURRENT_PATH}/volumes/rocketmq/conf/broker.conf:/home/rocketmq/broker.conf
+    env_file:
+      - ${CURRENT_PATH}/env/rocketmq/broker.env
     command: ./mqbroker -n rocketmq-namesrv:9876 -c /home/rocketmq/broker.conf
     depends_on:
       - rocketmq-namesrv
