@@ -1,0 +1,29 @@
+version: "3"
+services:
+  consul:
+    hostname: consul
+    container_name: consul-server
+    image: ${IMAGE}:${CONSUL_VERSION}
+    volumes:
+      - ${CURRENT_PATH}/volumes/nginx/logs:/var/log/nginx/.
+    command: agent -server -bootstrap-expect=3 -node=node -bind=0.0.0.0 -client=0.0.0.0 -datacenter=dc
+    env_file:
+      - ${CURRENT_PATH}/env/consul/consul-server.env
+    networks:
+      - custom
+  consul4:
+    image: consul
+    container_name: consul-client
+    command: agent -retry-join=consul-server -node=consul-client -bind=0.0.0.0 -client=0.0.0.0 -datacenter=dc -ui 
+    ports:
+      - 8500:8500
+    env_file:
+      - ${CURRENT_PATH}/env/consul/consul-client.env
+    networks:
+      - custom
+    depends_on:
+        - consul-server
+
+networks:
+  custom:
+    external: true
