@@ -8,7 +8,7 @@ services:
     volumes:
       - ${CURRENT_PATH}/volumes/nginx/logs:/var/log/nginx/.
       - ${CURRENT_PATH}/volumes/nginx/html:/usr/share/nginx/html/.
-      - ${CURRENT_PATH}/volumes/nginx/conf:/etc/nginx/.
+      - ${CURRENT_PATH}/volumes/nginx/conf:/etc/nginx/conf.d/.
     ports:
       - "80:80"
       - "443:443"
