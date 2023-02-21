@@ -6,11 +6,11 @@ services:
     container_name: yapi
     image: ${IMAGE}:${YAPI_VERSION}
     # 第一次启动使用
-#    command: "yapi server"
+#    command: "server/install.js"
     # 之后使用下面的命令
-    command: "node /my-yapi/vendors/server/app.js"
+    command: "server/app.js"
     volumes:
-      - ${CURRENT_PATH}/volumes/yapi/logs:/home/vendors/log
+      - ${CURRENT_PATH}/volumes/yapi/config.json:/yapi/config.json
     ports: 
       - 9090:9090
       - 3000:3000
