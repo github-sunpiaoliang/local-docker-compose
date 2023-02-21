@@ -1,16 +1,19 @@
-version: '2.1'
+# Use root/example as user/password credentials
+version: '3.1'
+
 services:
-  yapi:
-    image: ${IMAGE}:${YAPI_VERSION}
+  yapi: 
     container_name: yapi
-    env_file:
-      - ${CURRENT_PATH}/env/yapi/yapi.env
-    # restart: always
-    ports:
-      - 127.0.0.1:3000:3000
+    image: ${IMAGE}:${YAPI_VERSION}
+    # 第一次启动使用
+#    command: "yapi server"
+    # 之后使用下面的命令
+    command: "node /my-yapi/vendors/server/app.js"
     volumes:
-      - ${CURRENT_PATH}/volumes/yapi/yapi.log:/home/vendors/log 
-    entrypoint: "bash /wait-for-it.sh mongodb:27017 -- entrypoint.sh"
+      - ${CURRENT_PATH}/volumes/yapi/logs:/home/vendors/log
+    ports: 
+      - 9090:9090
+      - 3000:3000
     networks:
       - custom
 
