@@ -1,0 +1,19 @@
+version: '2.1'
+services:
+  yapi:
+    image: ${IMAGE}:${YAPI_VERSION}
+    container_name: yapi
+    env_file:
+      - ${CURRENT_PATH}/env/yapi/yapi.env
+    # restart: always
+    ports:
+      - 127.0.0.1:3000:3000
+    volumes:
+      - ${CURRENT_PATH}/volumes/yapi/yapi.log:/home/vendors/log 
+    entrypoint: "bash /wait-for-it.sh mongodb:27017 -- entrypoint.sh"
+    networks:
+      - custom
+
+networks:
+  custom:
+    external: true
