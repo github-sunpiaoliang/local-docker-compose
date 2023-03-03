@@ -1,0 +1,18 @@
+version: '3.1'
+
+services:
+  trojan: 
+    container_name: trojan
+    image: ${IMAGE}:${TROJAN_VERSION}
+    volumes:
+      - ${CURRENT_PATH}/volumes/trojan/config.json:/config/config.json
+    env_file:
+      - ${CURRENT_PATH}/env/trojan/trojan.env
+    ports: 
+      - 1080:1080
+    networks:
+      - custom
+
+networks:
+  custom:
+    external: true
