@@ -1,0 +1,13 @@
+services:
+  clash:
+    image: ${IMAGE}:${CLASH_VERSION}
+    container_name: clash
+    volumes:
+      - ${CURRENT_PATH}/volumes/clash/config.yaml:/root/.config/clash/config.yaml
+    env_file:
+      - ${CURRENT_PATH}/env/clash/clash.env
+    ports:
+      - "7890:7890"
+      - "7891:7891"
+    restart: always
+    network_mode: host

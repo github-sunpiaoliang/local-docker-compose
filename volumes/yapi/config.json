@@ -3,7 +3,7 @@
     "adminAccount": "test@test.cn",
     "timeout":120000,
     "db": {
-        "servername": "127.0.0.1",
+        "servername": "mongodb",
         "DATABASE": "yapi",
         "port": 27017,
         "user": "yapi",
