@@ -1,0 +1,27 @@
+version: "3"
+services:
+  flink-jobmanager:
+    hostname: flink-jobmanager
+    container_name: flink-jobmanager
+    image: ${IMAGE}:${FLINK_VERSION}
+    ports:
+      - "8081:8081"
+    env_file:
+      - ${CURRENT_PATH}/env/flink/flink-jobmanager.env
+    command: jobmanager
+    restart: always
+    networks:
+      - custom
+  flink-taskmanager:
+    hostname: flink-taskmanager
+    container_name: flink-taskmanager
+    image: ${IMAGE}:${FLINK_VERSION}
+    env_file:
+      - ${CURRENT_PATH}/env/flink/flink-taskmanager.env
+    command: taskmanager
+    restart: always
+    networks:
+      - custom
+networks:
+  custom:
+    external: true
