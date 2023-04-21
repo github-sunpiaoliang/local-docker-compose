@@ -1,0 +1,20 @@
+version: "3"
+services:
+  canal-server:
+    hostname: cannal-server
+    container_name: canal-server
+    image: ${CANAL_IMAGE}:${CANAL_VERSION}
+    volumes:
+      - ${CURRENT_PATH}/volumes/canal/logs:/home/admin/canal-server/logs
+    ports:
+      - 11110:11110
+      - 11111:11111
+      - 11112:11112
+      - 9100:9100
+    env_file:
+      - ${CURRENT_PATH}/env/canal/canal-server.env
+    networks:
+      - custom
+networks:
+  custom:
+    external: true
