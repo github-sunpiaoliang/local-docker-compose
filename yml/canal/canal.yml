@@ -1,11 +1,25 @@
 version: "3"
 services:
+  canal-admin:
+    hostname: canal-admin
+    container_name: canal-admin
+    image: ${CANAL_ADMIN_IMAGE}:${CANAL_ADMIN_VERSION}
+    restart: always
+    volumes:
+      - ${CURRENT_PATH}/volumes/canal/admin/logs:/home/admin/canal-admin/logs
+    ports:
+      - 8089:8089
+    env_file:
+      - ${CURRENT_PATH}/env/canal/canal-admin.env
+    networks:
+      - custom
   canal-server:
     hostname: cannal-server
     container_name: canal-server
-    image: ${CANAL_IMAGE}:${CANAL_VERSION}
+    image: ${CANAL_SERVER_IMAGE}:${CANAL_SERVER_VERSION}
+    restart: always
     volumes:
-      - ${CURRENT_PATH}/volumes/canal/logs:/home/admin/canal-server/logs
+      - ${CURRENT_PATH}/volumes/canal/server/logs:/home/admin/canal-server/logs
     ports:
       - 11110:11110
       - 11111:11111
@@ -13,6 +27,8 @@ services:
       - 9100:9100
     env_file:
       - ${CURRENT_PATH}/env/canal/canal-server.env
+    depends_on:
+      - canal-admin
     networks:
       - custom
 networks:

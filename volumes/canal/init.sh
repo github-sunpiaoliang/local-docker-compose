@@ -1,3 +1,3 @@
 #! /bin/bash
 
-mkdir logs
+mkdir -p server/logs admin/logs
