@@ -1,0 +1,11 @@
+services:
+  elastic:
+    image: ${IMAGE}:${ELASTIC_VERSION}
+    container_name: elastic
+    env_file:
+      - ${CURRENT_PATH}/env/elastic/elastic.env
+    ports:
+      - "9200:9200"
+      - "9300:9200"
+    restart: always
+    network_mode: host
