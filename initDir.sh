@@ -7,7 +7,7 @@ fi
 #当前路径
 CURRENT_DIR=$(cd `dirname $0`; pwd)
 #目标路径
-DIR_PATH=$CURRENT_DIR/volumes/$1
+DIR_PATH=$CURRENT_DIR/$1/volumes
 #目标脚本
 FILE_PATH=$DIR_PATH/init.sh
 echo "执行: $FILE_PATH"
@@ -20,7 +20,7 @@ cd $DIR_PATH
 chmod u+x $FILE_PATH
 source $FILE_PATH
 
-sed -i '' "s#\${CURRENT_PATH}#$CURRENT_DIR#g"  $CURRENT_DIR/yml/$1/.env
+sed -i '' "s#\${CURRENT_PATH}#$CURRENT_DIR#g"  $CURRENT_DIR/$1/.env
 
 
 
