@@ -10,12 +10,12 @@ services:
       - "8943:443"
       - "8922:22"
     volumes:
-      - ${CURRENT_PATH}/volumes/gitlab/config:/etc/gitlab
-      - ${CURRENT_PATH}/volumes/gitlab/logs:/var/log/gitlab
-      - ${CURRENT_PATH}/volumes/gitlab/data:/var/opt/gitlab
+      - ${CURRENT_PATH}/gitlab/volumes/config:/etc/gitlab
+      - ${CURRENT_PATH}/gitlab/volumes/logs:/var/log/gitlab
+      - ${CURRENT_PATH}/gitlab/volumes/data:/var/opt/gitlab
     shm_size: '256m'
     env_file:
-      - ${CURRENT_PATH}/env/gitlab/gitlab.env
+      - ${CURRENT_PATH}/gitlab/env/gitlab.env
     networks:
       - custom
 

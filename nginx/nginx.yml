@@ -6,14 +6,14 @@ services:
     image: ${IMAGE}:${NGINX_VERSION}
     privileged: true
     volumes:
-      - ${CURRENT_PATH}/volumes/nginx/logs:/var/log/nginx/.
-      - ${CURRENT_PATH}/volumes/nginx/html:/usr/share/nginx/html/.
-      - ${CURRENT_PATH}/volumes/nginx/conf:/etc/nginx/conf.d/.
+      - ${CURRENT_PATH}/nginx/volumes/logs:/var/log/nginx/.
+      - ${CURRENT_PATH}/nginx/volumes/html:/usr/share/nginx/html/.
+      - ${CURRENT_PATH}/nginx/volumes/conf:/etc/nginx/conf.d/.
     ports:
       - "80:80"
       - "443:443"
     env_file:
-      - ${CURRENT_PATH}/env/nginx/nginx.env
+      - ${CURRENT_PATH}/nginx/env/nginx.env
     restart: always
     networks:
       - custom

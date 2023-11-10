@@ -5,13 +5,13 @@ services:
     container_name: redis
     image: ${IMAGE}:${REDIS_VERSION}
     volumes:
-      - ${CURRENT_PATH}/volumes/redis/data:/data
-      - ${CURRENT_PATH}/volumes/redis/logs:/logs
-      - ${CURRENT_PATH}/volumes/redis/conf/redis.conf:/etc/redis/redis.conf
+      - ${CURRENT_PATH}/redis/volumes/data:/data
+      - ${CURRENT_PATH}/redis/volumes/logs:/logs
+      - ${CURRENT_PATH}/redis/volumes/conf/redis.conf:/etc/redis/redis.conf
     ports:
       - "6379:6379"
     env_file:
-      - ${CURRENT_PATH}/env/redis/redis.env
+      - ${CURRENT_PATH}/redis/env/redis.env
     restart: always
     command: ["redis-server","/etc/redis/redis.conf","--appendonly","yes"]
 

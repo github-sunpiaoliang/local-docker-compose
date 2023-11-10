@@ -5,11 +5,11 @@ services:
     container_name: fastdfs
     image: ${IMAGE}:${FASTDFS_VERSION}
     volumes:
-      - ${CURRENT_PATH}/volumes/fastdfs/data:/data
+      - ${CURRENT_PATH}/fastdfs/volumes/data:/data
     ports:
       - "28080:8080"
     env_file:
-      - ${CURRENT_PATH}/env/fastdfs/fastdfs.env
+      - ${CURRENT_PATH}/fastdfs/env/fastdfs.env
     restart: always
 
     networks:

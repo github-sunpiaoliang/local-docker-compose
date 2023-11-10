@@ -4,13 +4,11 @@ services:
     hostname: consul
     container_name: consul-server
     image: ${IMAGE}:${CONSUL_VERSION}
-    volumes:
-      - ${CURRENT_PATH}/volumes/nginx/logs:/var/log/nginx/.
     ports:
       - 8500:8500
     command: agent -server -bootstrap -node=local -client=0.0.0.0 -datacenter=dc -ui 
     env_file:
-      - ${CURRENT_PATH}/env/consul/consul-server.env
+      - ${CURRENT_PATH}/consul/env/consul-server.env
     networks:
       - custom
 networks:

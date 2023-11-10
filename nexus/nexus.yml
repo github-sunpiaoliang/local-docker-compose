@@ -6,11 +6,11 @@ services:
     image: ${IMAGE}:${NEXUS_VERSION}
     privileged: true
     volumes:
-      - ${CURRENT_PATH}/volumes/nexus/data:/var/nexus-data
+      - ${CURRENT_PATH}/nexus/volumes/data:/var/nexus-data
     ports:
       - "18081:8081"
     env_file:
-      - ${CURRENT_PATH}/env/nexus/nexus.env
+      - ${CURRENT_PATH}/nexus/env/nexus.env
     networks:
       - custom
 

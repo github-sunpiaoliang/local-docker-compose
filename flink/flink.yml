@@ -7,7 +7,7 @@ services:
     ports:
       - "8081:8081"
     env_file:
-      - ${CURRENT_PATH}/env/flink/flink-jobmanager.env
+      - ${CURRENT_PATH}/flink/env/flink-jobmanager.env
     command: jobmanager
     restart: always
     networks:
@@ -17,7 +17,7 @@ services:
     container_name: flink-taskmanager
     image: ${IMAGE}:${FLINK_VERSION}
     env_file:
-      - ${CURRENT_PATH}/env/flink/flink-taskmanager.env
+      - ${CURRENT_PATH}/flink/env/flink-taskmanager.env
     command: taskmanager
     restart: always
     networks:

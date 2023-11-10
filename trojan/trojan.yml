@@ -5,9 +5,9 @@ services:
     container_name: trojan
     image: ${IMAGE}:${TROJAN_VERSION}
     volumes:
-      - ${CURRENT_PATH}/volumes/trojan/config.json:/config/config.json
+      - ${CURRENT_PATH}/trojan/volumes/config.json:/config/config.json
     env_file:
-      - ${CURRENT_PATH}/env/trojan/trojan.env
+      - ${CURRENT_PATH}/trojan/env/trojan.env
     ports: 
       - 1080:1080
     networks:

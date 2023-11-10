@@ -7,14 +7,14 @@ services:
     privileged: true
     user: root
     volumes:
-      - ${CURRENT_PATH}/volumes/jenkins/jenkins_home:/var/jenkins_home
+      - ${CURRENT_PATH}/jenkins/volumes/jenkins_home:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
       - /opt/homebrew/Cellar/maven/3.8.6:/var/mvn
     ports:
       - "18888:8080"
       - "15000:5000"
     env_file:
-      - ${CURRENT_PATH}/env/jenkins/jenkins.env
+      - ${CURRENT_PATH}/jenkins/env/jenkins.env
 
     networks:
       - custom

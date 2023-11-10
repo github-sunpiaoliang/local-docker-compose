@@ -8,9 +8,9 @@ services:
     ports:
       - 18080:8080
     volumes:
-      - ${CURRENT_PATH}/volumes/xxl-job/logs:/data/applogs
+      - ${CURRENT_PATH}/xxl-job/volumes/logs:/data/applogs
     env_file:
-      - ${CURRENT_PATH}/env/xxl-job/xxl-job.env
+      - ${CURRENT_PATH}/xxl-job/env/xxl-job.env
     networks:
       - custom
 

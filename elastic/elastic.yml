@@ -3,7 +3,7 @@ services:
     image: ${IMAGE}:${ELASTIC_VERSION}
     container_name: elastic
     env_file:
-      - ${CURRENT_PATH}/env/elastic/elastic.env
+      - ${CURRENT_PATH}/elastic/env/elastic.env
     ports:
       - "9200:9200"
       - "9300:9200"

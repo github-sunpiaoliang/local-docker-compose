@@ -10,7 +10,7 @@ services:
     # 之后使用下面的命令
     command: "server/app.js"
     volumes:
-      - ${CURRENT_PATH}/volumes/yapi/config.json:/yapi/config.json
+      - ${CURRENT_PATH}/yapi/volumes/config.json:/yapi/config.json
     ports: 
       - 9090:9090
       - 3000:3000

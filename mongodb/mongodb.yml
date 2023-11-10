@@ -5,12 +5,12 @@ services:
     container_name: mongodb
     image: ${IMAGE}:${MONGODB_VERSION}
     volumes:
-      - ${CURRENT_PATH}/volumes/mongodb/data:/data/db
-      - ${CURRENT_PATH}/init/mongodb:/docker-entrypoint-initdb.d
+      - ${CURRENT_PATH}/mongodb/volumes/data:/data/db
+      - ${CURRENT_PATH}/mongodb/init:/docker-entrypoint-initdb.d
     ports:
       - "27017:27017"
     env_file:
-      - ${CURRENT_PATH}/env/mongodb/mongodb.env
+      - ${CURRENT_PATH}/mongodb/env/mongodb.env
     networks:
       - custom
 

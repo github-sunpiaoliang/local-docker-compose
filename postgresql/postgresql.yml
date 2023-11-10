@@ -8,9 +8,9 @@ services:
     ports:
       - 5432:5432
     env_file:
-      - ${CURRENT_PATH}/env/postgresql/postgresql.env
+      - ${CURRENT_PATH}/postgresql/env/postgresql.env
     volumes:
-      - ${CURRENT_PATH}/volumes/postgresql/data:/var/lib/postgresql/data 
+      - ${CURRENT_PATH}/postgresql/volumes/data:/var/lib/postgresql/data 
     networks:
       - custom
 networks:

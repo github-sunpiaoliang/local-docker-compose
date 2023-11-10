@@ -10,10 +10,10 @@ services:
       - 6030-6041:6030-6041
       - 6030-6041:6030-6041/udp
     env_file:
-      - ${CURRENT_PATH}/env/tdengine/tdengine.env
+      - ${CURRENT_PATH}/tdengine/env/tdengine.env
     volumes:
-      - ${CURRENT_PATH}/volumes/tdengine/logs:/var/log/taos
-      - ${CURRENT_PATH}/volumes/tdengine/data:/var/lib/taos
+      - ${CURRENT_PATH}/tdengine/volumes/logs:/var/log/taos
+      - ${CURRENT_PATH}/tdengine/volumes/data:/var/lib/taos
     networks:
       - custom
 

@@ -3,9 +3,9 @@ services:
     image: ${IMAGE}:${CLASH_VERSION}
     container_name: clash
     volumes:
-      - ${CURRENT_PATH}/volumes/clash/config.yaml:/root/.config/clash/config.yaml
+      - ${CURRENT_PATH}/clash/volumes/config.yaml:/root/.config/clash/config.yaml
     env_file:
-      - ${CURRENT_PATH}/env/clash/clash.env
+      - ${CURRENT_PATH}/clash/env/clash.env
     ports:
       - "7890:7890"
       - "7891:7891"

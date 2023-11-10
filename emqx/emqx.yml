@@ -10,10 +10,10 @@ services:
       - 18083:18083
       - 4369:4369
     env_file:
-      - ${CURRENT_PATH}/env/emqx/emqx.env
+      - ${CURRENT_PATH}/emqx/env/emqx.env
     volumes:
-      - ${CURRENT_PATH}/volumes/emqx/data:/opt/emqx/data/.
-      - ${CURRENT_PATH}/volumes/emqx/logs:/opt/emqx/log/.
+      - ${CURRENT_PATH}/emqx/volumes/data:/opt/emqx/data/.
+      - ${CURRENT_PATH}/emqx/volumes/logs:/opt/emqx/log/.
     networks:
       - custom
 
