@@ -1,0 +1,18 @@
+version: "3"
+services:
+  nginx:
+    hostname: squid
+    container_name: squid
+    image: ${IMAGE}:${SQUID_VERSION}
+    privileged: true
+    ports:
+      - "3128:3128"
+    env_file:
+      - ${CURRENT_PATH}/squid/squid.env
+    restart: always
+    networks:
+      - custom
+
+networks:
+  custom:
+    external: true
