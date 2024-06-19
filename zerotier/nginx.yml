@@ -1,0 +1,16 @@
+version: "3"
+services:
+  zerotier:
+    hostname: zerotier
+    container_name: zerotier
+    image: ${IMAGE}:${ZEROTIER_VERSION}
+    privileged: true
+    volumes:
+      - ${CURRENT_PATH}/zerotier/volumes/logs:/var/log/nginx/.
+    ports:
+      - "80:80"
+      - "443:443"
+    env_file:
+      - ${CURRENT_PATH}/zerotier/env/zerotier.env
+    restart: always
+    network_mode: host

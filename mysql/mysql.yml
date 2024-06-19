@@ -2,7 +2,7 @@ version: '3'
 services:
   mysql:
     image: ${IMAGE}:${MYSQL_VERSION}
-    container_name: mysql-5.7
+    container_name: mysql
     #使用该参数，container内的root拥有真正的root权限，否则，container内的root只是外部的一个普通用户权限
     #设置为true，不然数据卷可能挂载不了，启动不起
     privileged: true
@@ -16,6 +16,7 @@ services:
       --interactive_timeout=31536000
       --max_connections=1000
       --default-authentication-plugin=mysql_native_password
+      --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     volumes:
       #映射mysql的数据目录到宿主机，保存数据
       - ${CURRENT_PATH}/mysql/volumes/data:/var/lib/mysql
@@ -23,7 +24,6 @@ services:
       - ${CURRENT_PATH}/mysql/volumes/config:/etc/mysql/mysql.conf.d
       #根据宿主机下的配置文件创建容器
       - ${CURRENT_PATH}/mysql/init:/docker-entrypoint-initdb.d
-    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     networks:
       - custom
 
