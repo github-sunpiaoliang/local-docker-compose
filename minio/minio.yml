@@ -1,0 +1,22 @@
+version: '3'
+services:
+  minio:
+    image: ${IMAGE}:${MINIO_VERSION}
+    container_name: minio
+    privileged: true
+    restart: always
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    env_file:
+      - ${CURRENT_PATH}/minio/env/minio.env
+    command: server --console-address ":9001"
+    volumes:
+      - ${CURRENT_PATH}/minio/volumes/data:/mnt/data
+      # - ${CURRENT_PATH}/minio/volumes/config/config.env:/etc/config.env
+    networks:
+      - custom
+
+networks:
+  custom:
+    external: true
