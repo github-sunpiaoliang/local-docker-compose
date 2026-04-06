@@ -10,7 +10,7 @@ services:
       - "9001:9001"
     env_file:
       - ${CURRENT_PATH}/minio/env/minio.env
-    command: server --console-address ":9001"
+    command: server --console-address ":9001" /mnt/data
     volumes:
       - ${CURRENT_PATH}/minio/volumes/data:/mnt/data
       # - ${CURRENT_PATH}/minio/volumes/config/config.env:/etc/config.env
