@@ -21,7 +21,7 @@ services:
       #映射mysql的数据目录到宿主机，保存数据
       - ${CURRENT_PATH}/mysql/volumes/data:/var/lib/mysql
       #映射mysql 配置文件
-      - ${CURRENT_PATH}/mysql/volumes/config:/etc/mysql/mysql.conf.d
+      - ${CURRENT_PATH}/mysql/volumes/config:/etc/mysql/conf.d
       #根据宿主机下的配置文件创建容器
       - ${CURRENT_PATH}/mysql/init:/docker-entrypoint-initdb.d
     networks:
